@@ -1,0 +1,28 @@
+# dependencies
+.idea
+dist
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/frontend/coverage
+
+# production
+/frontend/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# project logs
+request.log
+error.log
