@@ -108,10 +108,12 @@ const changeUserAvatar = (req, res, next) => {
 };
 
 const login = (req, res, next) => {
+  const { NODE_ENV, JWT_SECRET } = process.env;
   const { email, password } = req.body;
+
   User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'secret-code', {
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : '7676f556b5908feda2bbecffc9c8e75c4aa7a803d9433e76c99541d048195820', {
         expiresIn: '7d',
       });
       return res.send({ token });
