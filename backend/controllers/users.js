@@ -118,9 +118,7 @@ const login = (req, res, next) => {
       });
       return res.send({ token });
     })
-    .catch(() => {
-      next(new UnauthorizedError('Не правильный логин или пароль')); // если пользователь с такими данными не найден то возвращаем 401
-    });
+    .catch(next);
 };
 
 module.exports = {
